@@ -1,20 +1,459 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="app">
+  <section>
+    <div class="page">
+      <div class="inner">
+        <table>
+          <tr>
+            <td>
+              <table class="header-table">
+                <tbody>
+                <tr>
+                  <td class="titulo">
+                    Solicitud de Empleo
+                  </td>
+                  <td class="td">Fecha <p><input type="text" value="{{fecha}}"></p></td>
+                </tr>
+                <tr>
+                  <td class="nota" rowspan="2">NOTA: La información aquí proporcionadad será tratada confidencialmente.</td>
+                  <td class="td">Puesto que Solicita <p><input type="text" class="focusNext" tabindex="0"></p></td>
+                </tr>
+                <tr>
+                  <td class="td">Sueldo Mensual Deseado <p>$ <input class="sueldo focusNext" type="text" tabindex="1"></p></td>
+                </tr>
+                </tbody>
+              </table>
+            </td>
+            <td class="foto">              
+              <div class="image-container"  [style.background-image]="'url(' + image + ')'">                
+                <input type="file" accept="image/*" (change)="changeListener($event)">
+              </div> 
+            </td>
+          </tr>
+        </table>
+        <p class="subtitulo">Datos Personales</p>
+        <table class="datos">
+          <tr>
+            <td>Apellido Paterno <p><input type="text" class="focusNext" tabindex="2"></p></td>
+            <td>Apellido Materno <p><input type="text" class="focusNext" tabindex="3"></p></td>
+            <td colspan="2" class="nombre">Nombre(s) <p><input type="text" class="focusNext" tabindex="4"></p></td>
+            <td class="no-right">Edad <p><input type="text" class="line focusNext" tabindex="5"> Años</p></td>
+          </tr>
+          <tr>
+            <td>Dirección <p><input type="text" class="focusNext" tabindex="6"></p></td>
+            <td>Colonia <p><input type="text" class="focusNext" tabindex="7"></p></td>
+            <td>Código Postal <p><input type="text" class="focusNext" tabindex="8"></p></td>
+            <td>Teléfono <p><input type="text" class="focusNext" tabindex="9"></p></td>
+            <td class="no-right">Sexo <p style="vertical-align:middle;"><input type="radio" name="sexo"> M <input type="radio" name="sexo"> F</p></td>
+          </tr>
+          <tr>
+            <td colspan="3">Lugar de Nacimiento <p><input type="text" class="focusNext" tabindex="10"></p></td>
+            <td>Fecha de nacimiento <p><input type="text" class="focusNext" tabindex="11"></p></td>
+            <td class="no-right">Nacionalidad <p><input type="radio" name="naci"> M <input type="radio" name="naci"> E</p></td>
+          </tr>
+          <tr>
+            <td colspan="3">Vive con <p><input type="radio" name="vive"> Sus padres <input type="radio" name="vive"> Su familia <input type="radio" name="vive"> Parientes <input type="radio" name="vive"> Solo</p></td>
+            <td>Estatura <p><input type="text" class="focusNext" tabindex="12"></p></td>
+            <td class="no-right">Peso <p><input type="text" class="line focusNext" tabindex="13"> Kg</p></td>
+          </tr>
+          <tr>
+            <td class="no-bottom">Correo Electrónico <p><input type="text" class="focusNext" tabindex="14"></p></td>
+            <td class="no-bottom" colspan="2">Personas que dependen de usted <p><input type="checkbox" name="person"> Hijos <input type="checkbox" name="person"> Conyuge <input type="checkbox" name="person"> Padres <input type="checkbox" name="person"> Otros</p></td>
+            <td class="no-bottom no-right" colspan="2">Estado Civil <p><input type="radio" name="civil"> Soltero <input type="radio" name="civil"> Casado  <span style="margin-left: 6mm;">Otro </span> <input type="text" style="width: 2.4cm;"></p></td>
+          </tr>
+        </table>
+  
+        <p class="subtitulo">Documentación</p>
+        <table class="documentos">
+          <tr>
+            <td colspan="2">Clave Unica de Registro de Población (CURP) <p><input type="text" class="curp focusNext" tabindex="15"></p></td>
+            <td colspan="2" class="no-right">AFORE <p><input type="text" class="focusNext" tabindex="16"></p></td>
+          </tr>
+          <tr>
+            <td>Reg. Fed. de Contribuyente No. <p><input type="text" class="focusNext" tabindex="17"></p></td>
+            <td>Número de Seguridad Social <p><input type="text" class="focusNext" tabindex="18"></p></td>
+            <td>Cartilla Servicio Militar No. <p><input type="text" class="focusNext" tabindex="19"></p></td>
+            <td class="no-right">Pasaporte No. <p><input type="text" class="focusNext" tabindex="20"></p></td>
+          </tr>
+          <tr>
+            <td class="no-bottom">Licencia de Manejo <p><input type="radio" name="licen"> Si <input type="radio" name="licen"> No</p></td>
+            <td class="no-bottom">Clase y No. de Licencia <p><input type="text" class="focusNext" tabindex="21"></p></td>
+            <td class="no-bottom no-right" colspan="2">Si es extranjero que documento le permite trabajar en el País <p><input type="text" class="focusNext" tabindex="22"></p></td>
+          </tr>
+        </table>
+        <p class="subtitulo">Estado de Salud y Hábitos Personales</p>
+        <table class="salud">
+          <tr>
+            <td>Actualmente ¿Como considera su estado de salud? <p><input type="radio" name="salud"> Bueno <input type="radio" name="salud"> Regular <input type="radio" name="salud"> Malo</p></td>
+            <td colspan="2" class="no-right">¿Padece alguna enfermedad crónica? <p><input type="radio" name="enfer"> Si <input type="radio" name="enfer"> No  <span style="margin-left: 6mm;">¿Cuál? </span> <input type="text" class="focusNext" tabindex="23" style="width: 10cm;"></p></td>
+          </tr>
+          <tr>
+            <td>¿Qué deporte practica? <p><input type="text" class="focusNext" tabindex="24"></p></td>
+            <td>¿Pertenece a algún club social o deportivo? <p><input type="text" class="focusNext" tabindex="25"></p></td>
+            <td class="no-right">¿Cuál es su pasatiempo favorito? <p><input type="text" class="focusNext" tabindex="26"></p></td>
+          </tr>
+          <tr>
+            <td class="no-bottom no-right" colspan="3">¿Cuál es su meta en la vida? <p><input type="text" class="focusNext" tabindex="27"></p></td>
+          </tr>
+        </table>
+        <p class="subtitulo">Datos Familiares</p>
+        <table class="familia">
+          <tr style="border-top-left-radius: 5px; border-top-right-radius: 5px;">
+            <th style="border-top-left-radius: 5px;">NOMBRE</th>
+            <th>VIVE</th>
+            <th>FINADO</th>
+            <th>DIRECCIÓN</th>
+            <th style="border-top-right-radius: 5px;">OCUPACIÓN</th>
+          </tr>
+          <tr>
+            <td>Padre<p><input type="text" class="focusNext" tabindex="28"></p></td>
+            <td><p><br><input type="radio" name="padre"></p></td>
+            <td><p><br><input type="radio" name="padre"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="29"></p></td>
+            <td class="no-right"><p><br><input type="text" class="focusNext" tabindex="30"></p></td>
+          </tr>
+          <tr>
+            <td>Madre<p><input type="text" class="focusNext" tabindex="31"></p></td>
+            <td><p><br><input type="radio" name="madre"></p></td>
+            <td><p><br><input type="radio" name="madre"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="32"></p></td>
+            <td class="no-right"><p><br><input type="text" class="focusNext" tabindex="33"></p></td>
+          </tr>
+          <tr>
+            <td>Esposa (o)<p><input type="text" class="focusNext" tabindex="34"></p></td>
+            <td><p><br><input type="radio" name="Esposo"></p></td>
+            <td><p><br><input type="radio" name="Esposo"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="35"></p></td>
+            <td class="no-right"><p><br><input type="text" class="focusNext" tabindex="36"></p></td>
+          </tr>
+          <tr>
+            <td colspan="5" class="no-bottom no-right">Nombres y edades de los hijos<p><input type="text" class="focusNext" tabindex="37"></p></td>
+          </tr>
+        </table>
+        <p class="subtitulo">Escolaridad</p>
+        <table class="escolaridad">
+          <tr style="border-top-left-radius: 5px; border-top-right-radius: 5px;">
+            <th style="border-top-left-radius: 5px;">NOMBRE DE LA ESCUELA</th>
+            <th>DIRECCIÓN</th>
+            <th>PERIODO</th>
+            <th>AÑOS</th>
+            <th style="border-top-right-radius: 5px;">TÍTULO RECIBIDO</th>
+          </tr>
+          <tr>
+            <td>Primaria<p><input type="text" class="focusNext" tabindex="38"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="39"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="40"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="41"></p></td>
+            <td class="no-right"><p><br><input type="text" class="focusNext" tabindex="42"></p></td>
+          </tr>
+          <tr>
+            <td>Secundaria o Prevocacional<p><input type="text" class="focusNext" tabindex="43"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="44"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="45"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="46"></p></td>
+            <td class="no-right"><p><br><input type="text" class="focusNext" tabindex="47"></p></td>
+          </tr>
+          <tr>
+            <td>Preparatoria o Vocacional<p><input type="text" class="focusNext" tabindex="48"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="49"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="50"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="51"></p></td>
+            <td class="no-right"><p><br><input type="text" class="focusNext" tabindex="52"></p></td>
+          </tr>
+          <tr>
+            <td>Profesional<p><input type="text" class="focusNext" tabindex="53"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="54"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="55"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="56"></p></td>
+            <td class="no-right"><p><br><input type="text" class="focusNext" tabindex="57"></p></td>
+          </tr>
+          <tr>
+            <td>Comercial u Otras<p><input type="text" class="focusNext" tabindex="58"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="59"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="60"></p></td>
+            <td><p><br><input type="text" class="focusNext" tabindex="61"></p></td>
+            <td class="no-right"><p><br><input type="text" class="focusNext" tabindex="62"></p></td>
+          </tr>
+          <tr>
+            <td colspan="5" class="no-bottom no-right">Estudios que efectúa en la actualidad<p><input type="text" class="focusNext" tabindex="63"></p></td>
+          </tr>
+        </table>
+  
+        <table class="footer">
+          <tr>
+            <td></td>
+            <td><a href="https://www.didocu.com" target="_blank" rel="noopener">diducu.com</a></td>
+            <td>pag. 1 de 2</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="page">
+      <div class="inner">
+        <p class="subtitulo">Conocimientos Generales</p>
+        <table class="conocimientos">
+          <tr>
+            <td>Que idiomas domina <p><input type="text" class="focusNext" tabindex="64"></p></td>
+            <td class="no-right">Que funciones de oficina domina <p><input type="text" class="focusNext" tabindex="65"></p></td>
+          </tr>
+          <tr>
+            <td>Máquinas de oficina o taller que sepa manejar <p><input type="text" class="focusNext" tabindex="66"></p></td>
+            <td class="no-right">Software que domina <p><input type="text" class="focusNext" tabindex="67"></p></td>
+          </tr>
+          <tr>
+            <td class="no-bottom no-right" colspan="2">Otras funciones que domine <p><input type="text" class="focusNext" tabindex="68"></p></td>
+          </tr>
+        </table>
+        <p class="subtitulo">Empleo Actual y Anteriores</p>
+        <table class="empleo">
+          <tr>
+            <th>CONCEPTO</th>
+            <th>EMPLEO ACTUAL O ULTIMO</th>
+            <th>EMPLEO ANTERIOR</th>
+            <th>EMPLEO ANTERIOR</th>
+            <th>EMPLEO ANTERIOR</th>
+          </tr>
+          <tr>
+            <td>Tiempo que presto sus servicios</td>
+            <td><input type="text" class="focusNext" tabindex="69"></td>
+            <td><input type="text" class="focusNext" tabindex="70"></td>
+            <td><input type="text" class="focusNext" tabindex="71"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="72"></td>
+          </tr>
+          <tr>
+            <td>Nombre de la compañia</td>
+            <td><input type="text" class="focusNext" tabindex="73"></td>
+            <td><input type="text" class="focusNext" tabindex="74"></td>
+            <td><input type="text" class="focusNext" tabindex="75"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="76"></td>
+          </tr>
+          <tr>
+            <td>Dirección</td>
+            <td><input type="text" class="focusNext" tabindex="77"></td>
+            <td><input type="text" class="focusNext" tabindex="78"></td>
+            <td><input type="text" class="focusNext" tabindex="79"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="80"></td>
+          </tr>
+          <tr>
+            <td>Teléfono</td>
+            <td><input type="text" class="focusNext" tabindex="81"></td>
+            <td><input type="text" class="focusNext" tabindex="82"></td>
+            <td><input type="text" class="focusNext" tabindex="83"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="84"></td>
+          </tr>
+          <tr>
+            <td>Puesto que desempeñaba</td>
+            <td><input type="text" class="focusNext" tabindex="85"></td>
+            <td><input type="text" class="focusNext" tabindex="86"></td>
+            <td><input type="text" class="focusNext" tabindex="87"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="88"></td>
+          </tr>
+          <tr>
+            <td>Sueldos</td>
+            <td><input type="text" class="focusNext" tabindex="89"></td>
+            <td><input type="text" class="focusNext" tabindex="90"></td>
+            <td><input type="text" class="focusNext" tabindex="91"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="92"></td>
+          </tr>
+          <tr>
+            <td>Motivo de su separación</td>
+            <td><input type="text" class="focusNext" tabindex="93"></td>
+            <td><input type="text" class="focusNext" tabindex="94"></td>
+            <td><input type="text" class="focusNext" tabindex="95"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="96"></td>
+          </tr>
+          <tr>
+            <td>Nombre de su jefe directo</td>
+            <td><input type="text" class="focusNext" tabindex="97"></td>
+            <td><input type="text" class="focusNext" tabindex="98"></td>
+            <td><input type="text" class="focusNext" tabindex="99"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="100"></td>
+          </tr>
+          <tr>
+            <td>Puesto de su jefe directo</td>
+            <td><input type="text" class="focusNext" tabindex="101"></td>
+            <td><input type="text" class="focusNext" tabindex="102"></td>
+            <td><input type="text" class="focusNext" tabindex="103"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="104"></td>
+          </tr>
+          <tr>
+            <td class="no-bottom no-right" colspan="5">Podriamos solicitar informes de usted 
+              <p>
+                <input type="radio" name="inform"> Si
+                <input type="radio" name="inform"> No
+                <span style="margin-left: 6mm;">¿Porqué? </span> <input type="text" class="focusNext" tabindex="105" style="width: 15.5cm;">
+              </p>
+            </td>
+          </tr>
+        </table>
+        <p class="subtitulo">Referencias Personales</p>
+        <table class="referencias">
+          <tr>
+            <th>NOMBRE</th>
+            <th>DIRECCIÓN</th>
+            <th>TELÉFONO</th>
+            <th>OCUPACIÓN</th>
+            <th>TIEMPO DE CONOCERLO</th>
+          </tr>
+          <tr>
+            <td><input type="text" class="focusNext" tabindex="106"></td>
+            <td><input type="text" class="focusNext" tabindex="107"></td>
+            <td><input type="text" class="focusNext" tabindex="108"></td>
+            <td><input type="text" class="focusNext" tabindex="109"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="110"></td>
+          </tr>
+          <tr>
+            <td><input type="text" class="focusNext" tabindex="111"></td>
+            <td><input type="text" class="focusNext" tabindex="112"></td>
+            <td><input type="text" class="focusNext" tabindex="113"></td>
+            <td><input type="text" class="focusNext" tabindex="114"></td>
+            <td class="no-right"><input type="text" class="focusNext" tabindex="115"></td>
+          </tr>
+          <tr>
+            <td class="no-bottom"><input type="text" class="focusNext" tabindex="116"></td>
+            <td class="no-bottom"><input type="text" class="focusNext" tabindex="117"></td>
+            <td class="no-bottom"><input type="text" class="focusNext" tabindex="118"></td>
+            <td class="no-bottom"><input type="text" class="focusNext" tabindex="119"></td>
+            <td class="no-bottom no-right"><input type="text" class="focusNext" tabindex="120"></td>
+          </tr>
+        </table>
+        <div style="display: flex;">
+          <div style="width: 50%; margin-right: 1mm;">
+            <p class="subtitulo">Datos Generales</p>
+            <table class="datosg">
+              <tr>
+                <td class="no-right" colspan="2">¿Como se enteró de este empleo? <p><input type="radio" name="dg1"> Anuncio <input type="radio" name="dg1"> Otro medio  <span style="margin-left: 6mm;"> (anótelo) </span> <input type="text" class="focusNext" tabindex="121" style="width: 4cm;"></p></td>
+              </tr>
+              <tr>
+                <td class="no-right" colspan="2">¿Algun pariente trabaja en esta empresa? <p><input type="radio" name="dg2"> No <input type="radio" name="dg2"> Si  <span style="margin-left: 6mm;"> (nombrelos) </span> <input type="text" class="focusNext" tabindex="122" style="width: 5.4cm;"></p></td>
+              </tr>
+              <tr>
+                <td class="no-right" colspan="2">¿Ha sido afianzado? <p><input type="radio" name="dg3"> No <input type="radio" name="dg3"> Si  <span style="margin-left: 6mm;"> (nombre de la Cia.) </span> <input type="text" class="focusNext" tabindex="123" style="width: 4.6cm;"></p></td>
+              </tr>
+              <tr>
+                <td class="no-right" colspan="2">¿Ha estado afiliado a algún sindicato? <p><input type="radio" name="dg4"> No <input type="radio" name="dg4"> Si  <span style="margin-left: 6mm;"> ¿a Cuál? </span> <input type="text" class="focusNext" tabindex="124" style="width: 5.8cm;"></p></td>
+              </tr>
+              <tr>
+                <td>¿Tiene seguro de vida? <p><input type="radio" name="dg5"> No <input type="radio" name="dg5"> Si  <span style="margin-left: 6mm;"> (nombre de la Cia.) </span> <input type="text" class="focusNext" tabindex="125" style="width: 2.3cm;"></p></td>
+                <td class="no-right">Suma asegurada <p>$ <input type="text" class="focusNext" tabindex="126" style="width: 1.8cm;"></p></td>
+              </tr>
+              <tr>
+                <td class="no-right" colspan="2">¿Podría viajar? <p><input type="radio" name="dg6"> Si <input type="radio" name="dg6"> No  <span style="margin-left: 6mm;"> (razones) </span> <input type="text" class="focusNext" tabindex="127" style="width: 5.7cm;"></p></td>
+              </tr>
+              <tr>
+                <td class="no-right" colspan="2">¿Estaría dispuesto a cambiar su lugar de residencia? <p><input type="radio" name="dg7"> Si <input type="radio" name="dg7"> No  <span style="margin-left: 6mm;"> (razones) </span> <input type="text" class="focusNext" tabindex="128" style="width: 5.7cm;"></p></td>
+              </tr>
+              <tr>
+                <td class="no-bottom no-right" colspan="2">¿En que fecha podría presentarse a trabajar? <p><input type="text" class="focusNext" tabindex="129"></p></td>
+              </tr>
+            </table>
+          </div>
+          <div style="width: 50%; margin-left: 1mm;">
+            <p class="subtitulo">Datos Económicos</p>
+            <table class="datosg">
+              <tr>
+                <td>¿Tiene usted otros ingresos? <p><input type="radio" name="dg8"> No <input type="radio" name="dg8"> Si  <span style="margin-left: 6mm;"> (describalos) </span> <input type="text" class="focusNext" tabindex="130" style="width: 2.6cm;"></p></td>
+                <td class="no-right">Importe mensual <p>$ <input type="text" class="focusNext" tabindex="131" style="width: 2.2cm;"></p></td>
+              </tr>
+              <tr>
+                <td>¿Su cónyuge trabaja? <p><input type="radio" name="dg9"> No <input type="radio" name="dg9"> Si  <span style="margin-left: 6mm;"> (¿donde?) </span> <input type="text" class="focusNext" tabindex="132" style="width: 2.9cm;"></p></td>
+                <td class="no-right">Percepción mensual <p>$ <input type="text" class="focusNext" tabindex="133" style="width: 2.2cm;"></p></td>
+              </tr>
+              <tr>
+                <td>¿Vive en casa propia? <p><input type="radio" name="dg10"> No <input type="radio" name="dg10"> Si </p></td>
+                <td class="no-right">Valor aproximado <p>$ <input type="text" class="focusNext" tabindex="134" style="width: 2.2cm;"></p></td>
+              </tr>
+              <tr>
+                <td>¿Paga renta? <p><input type="radio" name="dg11"> No <input type="radio" name="dg11"> Si</p></td>
+                <td class="no-right">Renta mensual <p>$ <input type="text" class="focusNext" tabindex="135" style="width: 2.2cm;"></p></td>
+              </tr>
+              <tr>
+                <td>¿Posee automóvil propio? <p><input type="radio" name="dg12"> No <input type="radio" name="dg12"> Si  <span style="margin-left: 6mm;"> (marca) </span> <input type="text" class="focusNext" tabindex="136" style="width: 3.1cm;"></p></td>
+                <td class="no-right">Valor aproximado <p>$ <input type="text" class="focusNext" tabindex="137" style="width: 2.2cm;"></p></td>
+              </tr>
+              <tr>
+                <td>¿Tiene deudas? <p><input type="radio" name="dg13"> No <input type="radio" name="dg13"> Si  <span style="margin-left: 6mm;"> (¿con quien?) </span> <input type="text" class="focusNext" tabindex="138" style="width: 2.5cm;"></p></td>
+                <td class="no-right">Importe <p>$ <input type="text" class="focusNext" tabindex="139" style="width: 2.2cm;"></p></td>
+              </tr>
+              <tr>
+                <td class="no-right" colspan="2">¿Cuanto abona mensualmente? <p>$ <input type="text" class="focusNext" tabindex="140" style="width: 96%; margin-top: 1mm;"></p></td>
+              </tr>
+              <tr>
+                <td class="no-bottom no-right" colspan="2">¿A cuanto asciende sus gastos mensuales? <p>$ <input type="text" class="focusNext" tabindex="141" style="width: 96%;"></p></td>
+              </tr>
+            </table>
+          </div>
+        </div>
 
+        <table class="obser">
+          <tr>
+            <td class="no-bottom no-right">Observaciones del entrevistador <p><textarea rows="3" class="focusNext" tabindex="142"></textarea></p></td>
+          </tr>
+        </table>
+        <div style="display: flex;">
+          <div style="width: 33%; margin-right: 1mm;">
+            <table class="firmas">
+              <tr>
+                <td class="no-bottom no-right">Hago constar que mis respuestas son verdaderas</td>
+              </tr>
+              <tr>
+                <td class="no-bottom no-right">
+                  <div class="signature">
+                    <div id="contSign" onclick="btn_click()">
+                      <!-- <img src="" id="imgSign" (load)="imgChanged($event)"> -->
+                      <img src="" id="imgSign">
+                    </div>
+                    <hr>
+                  </div>
+                  Firma del solicitante
+                </td>
+              </tr>
+            </table>
+          </div>
+          <div style="width: 33%; margin: 0 1mm;">
+            <table class="firmas">
+              <tr>
+                <td class="no-bottom no-right">Sueldo mensual autorizado</td>
+              </tr>
+              <tr>
+                <td class="no-bottom no-right">$ <input type="text" class="focusNext" tabindex="143" style="width: 96%;"></td>
+              </tr>
+            </table>
+          </div>
+          <div style="width: 33%; margin-left: 1mm;">
+            <table class="firmas">
+              <tr>
+                <td class="no-bottom no-right">Autorización</td>                
+              </tr>
+              <tr>
+                <td class="no-bottom no-right">
+                  <div class="signature">
+                    <div id="contSign2" onclick="btn_click2()">
+                      <!-- <img src="" id="imgSign2" (load)="imgChanged2($event)"> -->
+                      <img src="" id="imgSign2">
+                    </div>
+                    <hr>
+                  </div>
+                  Firma del entrevistador
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+  
+        <table class="footer">
+          <tr>
+            <td></td>
+            <td><a href="https://www.didocu.com" target="_blank" rel="noopener">diducu.com</a></td>
+            <td>pag. 2 de 2</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div class="no-print" id="printBtn" onclick="window.print()">
+  <img src="assets/print.svg" alt="" width="55" height="55">
+</div>

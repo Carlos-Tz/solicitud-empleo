@@ -2,13 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>SEmpleo</title>
+  <title>Solicitud de Empleo</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet">
 </head>
 <body>
   <app-root></app-root>
+  <div id="myModal" class="modalp">
+    <span class="close" id="close">&times;</span>
+    <div id="contMod" class="modal-content">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+  <div id="myModal2" class="modalp">
+    <span class="close" id="close2">&times;</span>
+    <div id="contMod" class="modal-content">
+      <canvas id="canvas2"></canvas>
+    </div>
+  </div>
+  <script src="assets/signature_pad.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="assets/main.js"></script>
 </body>
 </html>

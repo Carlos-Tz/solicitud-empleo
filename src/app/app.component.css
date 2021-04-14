@@ -1,0 +1,221 @@
+.subtitulo {
+    text-align: center;
+    font-size: 0.65em;
+    font-weight: 700;
+    margin-top: 1mm;
+}
+table {
+    border-radius: 5px;
+}
+td {
+    font-size: 0.8em;
+    font-weight: 500;
+}
+th {
+    font-size: 0.65em;
+    font-weight: 700;
+    background-color: #93c55d;
+}
+.header-table {
+    border: 5px solid #93c55d;
+    background-color: #93c55d;
+}
+.header-table .titulo {
+    font-size: 1.3em;
+    font-style: italic;
+    font-weight: 700;
+}
+.header-table .nota {
+    font-weight: 700;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1em 3em;
+    margin-right: 5px;
+}
+.header-table .td {
+    font-weight: 700;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0.3em;
+}
+.header-table input {
+    border: none;
+    width: 6cm;
+    font-size: 1em;
+    font-weight: 400;
+    font-family: var(--font);
+    color: var(--text-color);
+}
+.header-table .sueldo {
+    width: 5.5cm;
+}
+.foto {
+    width: 3.2cm;
+    border: 1px solid #7c7c80;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.65em;
+}
+/** Datos Personales*/
+.datos, .documentos, .salud, .familia, .escolaridad, .conocimientos, .empleo, .referencias, .datosg, .obser, .firmas {
+    width: 100% !important;
+    border: 1px solid #7c7c80;
+    border-spacing: 0;
+}
+.datos td, .documentos td, .salud td, .familia td, .escolaridad td, .conocimientos td, .empleo td, .referencias td, .datosg td, .obser td, .firmas td {
+    font-size: 0.55em;
+    padding: 0.3em;
+    font-weight: 700;
+    border-bottom: 1px solid #7c7c80;
+    border-right: 1px solid #7c7c80;
+}
+
+.no-right {
+    border-right: 0 !important;
+}
+.obser {
+    margin: 3mm 0;
+}
+
+.datos td input, .documentos td input, .salud td input, .familia td input, .escolaridad td input, .conocimientos td input, .empleo td input, .referencias td input, .datosg td input, .obser td textarea, .firmas td input {
+    width: 100%;
+    border: none;
+    font-size: 1.2em;
+    font-family: var(--font);
+    color: var(--text-color);
+}
+/* .datos td input[type=radio], .documentos td input[type=radio], .salud td input[type=radio], .familia td input[type=radio], .escolaridad td input[type=radio] {
+    width: .5cm;
+} */
+.datos .line {
+    width: 60% !important;
+    border: none;
+    font-size: 1em;
+    font-family: var(--font);
+    color: var(--text-color);
+}
+.datos td:nth-child(1),
+.datos td:nth-child(2) {
+    min-width: 5cm !important;
+}
+.datos .no-bottom, .documentos .no-bottom, .salud .no-bottom, .familia .no-bottom, .escolaridad .no-bottom, .conocimientos .no-bottom, .empleo .no-bottom, .referencias .no-bottom, .datosg .no-bottom, .obser .no-bottom, .firmas .no-bottom {
+    border-bottom: none;
+}
+.curp {
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+}
+.firmas {
+    text-align: center;
+}
+
+.familia th:nth-child(1),
+.familia th:nth-child(4) {
+    width: 6.3cm !important;
+}
+.familia th:nth-child(2),
+.familia th:nth-child(3) {
+    width: 1.3cm !important;
+}
+
+.escolaridad th:nth-child(1),
+.escolaridad th:nth-child(2) {
+    width: 6.3cm !important;
+}
+.escolaridad th:nth-child(4) {
+    width: 1.3 !important;
+}
+
+.conocimientos td:nth-child(1) {
+    width: 50%;
+}
+.referencias th:nth-child(1),
+.referencias th:nth-child(2) {
+    width: 5.5cm;
+}
+.referencias th:nth-child(3) {
+    width: 2.2cm;
+}
+/** Footer */
+.footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    font-size: 0.8em;
+}
+
+.footer td:nth-child(2) {
+    text-align: center;
+}
+.footer td:nth-child(3) {
+    text-align: right;
+}
+.footer td:nth-child(1),
+.footer td:nth-child(2),
+.footer td:nth-child(3) {
+    width: 33%;
+}
+.footer a {
+    cursor: pointer;
+    text-decoration: none;
+}
+.footer a:visited {
+    color: var(--text-color);
+}
+
+input[type=radio] {
+    border: 1px solid #7c7c80 !important;
+   /* padding: 0.5em;*/
+   padding: 0.4em !important;
+    -webkit-appearance: none !important;
+    margin-left: 4mm !important;
+    margin-top: 1mm !important;
+  }
+  input[type=radio]:checked {
+    background: #93c55d !important;
+   /* background-size: 6px 8px;**/
+  }
+  
+  input[type=radio]:focus {
+    outline-color: transparent;
+  }
+
+  input[type=checkbox], input[type=radio] {
+    border: 1px solid #7c7c80 !important;
+   /* padding: 0.5em;*/
+   padding: 0.4em !important;
+   max-width: 3mm !important;
+    -webkit-appearance: none !important;
+    margin-left: 4mm !important;
+    margin-top: 1mm !important;
+    opacity: 1 !important;
+    position: relative !important;
+    font-size: 1em;
+    pointer-events: all;
+  }
+  input[type=checkbox]:checked ,input[type=radio]:checked{
+    background: #93c55d !important;
+   /* background-size: 6px 8px;**/
+  }
+  
+  input[type=checkbox]:focus,input[type=radio]:focus {
+    outline-color: transparent !important;
+  }
+
+  .image-container input {opacity: 0;}
+  .image-container {
+     background-repeat: no-repeat; 
+    background-size: 100%; 
+    border-radius: 5px;
+    /* border-radius: 50%; */
+    /* border: 1px solid #fff; */
+    height: 3.2cm;
+  }
+  input[type=file] {
+    width: 3.2cm;/*4*/
+    height: 3.2cm;
+  }
+  textarea {
+      resize: none;
+  }
